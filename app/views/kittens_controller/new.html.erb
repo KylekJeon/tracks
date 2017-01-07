@@ -1,0 +1,22 @@
+<h1>Create a Kitten</h1>
+<img src='public/kittens1.jpg' />
+
+<form action="/kittens" method="post">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>" />
+  <label>
+    Name
+    <input type="text" name="kitten[name]" />
+  </label><br>
+  <label>
+    Color
+    <input type="text" name="kitten[color]" />
+  </label><br>
+  <label>
+    Breed
+    <input type="text" name="kitten[breed]" />
+  </label><br>
+  <input type="submit" value="Create Kitten" />
+</form>

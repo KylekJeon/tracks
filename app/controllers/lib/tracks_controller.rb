@@ -1,11 +1,10 @@
-require 'byebug'
 require 'active_support'
 require 'active_support/core_ext'
 require 'erb'
 require_relative './session'
 require_relative './flash'
 
-class OTRController
+class TracksController
   attr_reader :req, :res, :params
 
   def initialize(req, res, route_params = {})
@@ -25,9 +24,7 @@ class OTRController
     @res.location = url
 
     @already_built_response = true
-    debugger
     session.store_session(@res)
-
   end
 
   def render_content(content, content_type)
@@ -43,7 +40,7 @@ class OTRController
   def render(template_name)
     dir_path = File.dirname(__FILE__)
     template_path_name = File.join(
-      dir_path, "..", "views", self.class.name.underscore, "#{template_name}.html.erb"
+      dir_path, "../..", "views", self.class.name.underscore, "#{template_name}.html.erb"
     )
 
     template_content = File.read(template_path_name)

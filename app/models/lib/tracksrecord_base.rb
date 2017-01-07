@@ -1,11 +1,10 @@
 require 'active_support/inflector'
 require_relative 'db_connection'
 require_relative 'associatable'
-require_relative 'relation'
 require_relative 'searchable'
 
 class TracksrecordBase
-  extend Associtable
+  extend Associatable
   extend Searchable
 
   def self.columns

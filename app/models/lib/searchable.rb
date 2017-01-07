@@ -14,7 +14,7 @@ module Searchable
     parse_all(results)
   end
 
-  def self.all
+  def all
     results = DBConnection.execute(<<-SQL)
       SELECT
         #{self.table_name}.*
@@ -25,12 +25,12 @@ module Searchable
     parse_all(results)
   end
 
-  def self.find_by_sql(sql, values = [])
+  def find_by_sql(sql, values = [])
     results = DBConnection.execute(sql, values)
     parse_all(results)
   end
 
-  def self.find(id)
+  def find(id)
     results = DBConnection.execute(<<-SQL, id)
       SELECT
         #{self.table_name}.*
@@ -43,11 +43,11 @@ module Searchable
     parse_all(results).first
   end
 
-  def self.find_by(conditions)
+  def find_by(conditions)
     self.where(conditions).first
   end
 
-  def self.first
+  def first
     results = DBConnection.execute(<<-SQL)
       SELECT
         #{self.table_name}.*
@@ -60,7 +60,7 @@ module Searchable
     results
   end
 
-  def self.last
+  def last
     results = DBConnection.execute(<<-SQL)
       SELECT
         #{self.table_name}.*
@@ -74,7 +74,7 @@ module Searchable
     results
   end
 
-  def self.method_missing(method_name, *args)
+  def method_missing(method_name, *args)
     if method_name.to_s.start_with?("find_by_")
       columns = method_name[8..-1].split('_and_')
 
@@ -87,7 +87,7 @@ module Searchable
     end
   end
 
-  def self.parse_all(results)
+  def parse_all(results)
     results.map { |result| self.new(result) }
   end
 

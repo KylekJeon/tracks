@@ -41,6 +41,7 @@ class FileServer
   end
 
   def call(env)
+    debugger
     res = Rack::Response.new
     file_name = requested_file_name(env)
 
