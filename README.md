@@ -123,4 +123,13 @@ Create a sql file, and place inside db, and a database file will be automaticall
 ## Rack Middleware
 
 - StaticAssets allows you to serve static assets in the `/public` folder.
--
+- Exceptions provides error messages for any ruby errors
+
+## Running the App
+
+Ensure that Ruby and Bundler are installed.
+
+1. `git clone https://github.com/KylekJeon/tracks`
+2. `bundle install`
+3. `ruby config/routes.rb`
+4. `open localhost:3000 in browser`
