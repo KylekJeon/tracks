@@ -75,7 +75,6 @@ class KittensController < TracksController
   end
 
   def create
-    debugger
     @kitten = Kitten.new(
       name: params['kitten']['name'],
       color: params['kitten']['color'],
