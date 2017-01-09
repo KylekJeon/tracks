@@ -7,8 +7,9 @@ class Route
   end
 
   def matches?(req)
-    !!(req.path =~ @pattern) && req.request_method.downcase.to_sym == @http_method
-  end
+  req_method = req.params['method'] || req.request_method
+  (@http_method.to_s.casecmp(req_method) == 0) && @pattern =~ req.path
+end
 
   def run(req, res)
     match_data = @pattern.match(req.path)
