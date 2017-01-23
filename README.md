@@ -1,6 +1,6 @@
 # Tracks
 
-Tracks is an ORM (Object Relational Mappig) / MVC (Model View Controller) Framework written in Ruby. `TracksrecordBase` provides the ORM functionality, while `TracksController` provides an inheritable controller class, and `Router` provides the routing capabilities.
+Tracks is an ORM (Object Relational Mapping) / MVC (Model View Controller) Framework written in Ruby. `TracksrecordBase` provides the ORM functionality, while `TracksController` provides an inheritable controller class, and `Router` provides the routing capabilities.
 
 ## TracksrecordBase
 
